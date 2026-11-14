@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" href="icon.png" />
+    <link rel="apple-touch-icon" href="icon-180.png" />
+    <meta name="description" content="立体ツリー、ちぎって進むアドベントカレンダー、ペーパーボールのオーナメント。A4実寸の型紙（5cm確認線つき）と、大きな文字で1手順ずつ進める作り方の紙工作キットです。" />
+    <meta property="og:title" content="クリスマス紙工作キット" />
+    <meta property="og:description" content="立体ツリー／アドベントカレンダー／ペーパーボールのオーナメント。A4実寸型紙と1手順ずつ進める作り方。" />
+    <meta property="og:image" content="og.png" />
+    <meta property="og:type" content="website" />
+    <title>クリスマス紙工作キット</title>
+    <style>
+      :root{
+        --bg:#f2f6f2;
+        --panel:#ffffff;
+        --panel2:#e9f2ea;
+        --ink:#22332a;
+        --ink-soft:#4c5f54;
+        --line:#c9d8cc;
+        --green:#1e6b45;
+        --green-dark:#14532f;
+        --red:#b3372e;
+        --gold:#a87b12;
+        --gold-bg:#fdf3d7;
+        --shadow:0 2px 10px rgba(20,60,40,.10);
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#131e17;
+          --panel:#1d2c22;
+          --panel2:#24382b;
+          --ink:#eef5ef;
+          --ink-soft:#b9cabd;
+          --line:#3a5243;
+          --green:#7fc79b;
+          --green-dark:#a9dfc0;
+          --red:#f0928a;
+          --gold:#e8c766;
+          --gold-bg:#3a3220;
+          --shadow:0 2px 10px rgba(0,0,0,.35);
+        }
+      }
+      *{ box-sizing:border-box; }
+      html{ -webkit-text-size-adjust:100%; }
+      body{
+        margin:0;
+        background:var(--bg);
+        color:var(--ink);
+        font-family:"Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic UI","Noto Sans JP",sans-serif;
+        font-size:17px;
+        line-height:1.75;
+      }
+      button{ font-family:inherit; cursor:pointer; }
+      button, [role="button"], select, summary, input:not([type="checkbox"],[type="radio"]){ min-height:2rem; }
+
+      .wrap{ max-width:880px; margin:0 auto; padding:20px 16px 56px; }
+
+      header.hero{
+        background:var(--green-dark);
+        color:#fff;
+        border-radius:18px;
+        padding:26px 22px 22px;
+        box-shadow:var(--shadow);
+      }
+      @media (prefers-color-scheme: dark){
+        header.hero{ background:#1d4630; }
+      }
+      header.hero h1{
+        margin:0 0 8px;
+        font-size:30px;
+        line-height:1.35;
+        letter-spacing:.02em;
+      }
+      header.hero p{ margin:0; font-size:17px; line-height:1.8; color:#e6f2e8; }
+      .hero-badges{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+      .hero-badges span{
+        background:rgba(255,255,255,.14);
+        border:1px solid rgba(255,255,255,.35);
+        border-radius:999px;
+        padding:4px 12px;
+        font-size:15px;
+      }
+
+      .howto-print{
+        background:var(--gold-bg);
+        border:1.5px solid var(--gold);
+        border-radius:14px;
+        padding:14px 18px;
+        margin:18px 0 6px;
+        font-size:16.5px;
+      }
+      .howto-print strong{ color:var(--gold); }
+      .howto-print p{ margin:4px 0; }
+
+      /* ---- craft selector ---- */
+      .craft-nav{
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:12px;
+        margin:20px 0 8px;
+      }
+      .craft-btn{
+        background:var(--panel);
+        border:2px solid var(--line);
+        border-radius:16px;
+        padding:16px 10px 12px;
+        text-align:center;
+        color:var(--ink);
+        box-shadow:var(--shadow);
+        min-height:56px;
+      }
+      .craft-btn .ico{ display:block; margin:0 auto 6px; }
+      .craft-btn .name{ display:block; font-size:19px; font-weight:700; line-height:1.4; }
+      .craft-btn .meta{ display:block; font-size:14.5px; color:var(--ink-soft); margin-top:2px; }
+      .craft-btn[aria-selected="true"]{
+        border-color:var(--green);
+        background:var(--panel2);
+        outline:3px solid color-mix(in srgb, var(--green) 30%, transparent);
+      }
+      @media (max-width:560px){
+        .craft-nav{ grid-template-columns:1fr; }
+        .craft-btn{ display:flex; align-items:center; gap:14px; text-align:left; padding:12px 16px; }
+        .craft-btn .ico{ margin:0; flex:none; }
+      }
+
+      /* ---- panels ---- */
+      .panel{
+        background:var(--panel);
+        border:1.5px solid var(--line);
+        border-radius:18px;
+        padding:24px 22px 28px;
+        margin-top:16px;
+        box-shadow:var(--shadow);
+      }
+      .panel[hidden]{ display:none; }
+      .panel h2{
+        margin:0 0 4px;
+        font-size:26px;
+        line-height:1.4;
+        color:var(--green-dark);
+        display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+      }
+      .panel .lead{ margin:0 0 18px; font-size:17.5px; color:var(--ink-soft); }
+      .done-img{
+        display:flex; justify-content:center;
+        background:var(--panel2);
+        border-radius:14px;
+        padding:18px 10px 10px;
+        margin-bottom:20px;
+      }
+      .done-img figcaption{ text-align:center; font-size:15px; color:var(--ink-soft); margin-top:6px; }
+      figure{ margin:0; }
+
+      h3.sec{
+        font-size:20px;
+        margin:26px 0 10px;
+        padding-left:12px;
+        border-left:6px solid var(--red);
+        line-height:1.4;
+        color:var(--ink);
+      }
+      h3.sec:first-of-type{ margin-top:6px; }
+
+      ul.materials{ margin:0; padding:0; list-style:none; }
+      ul.materials li{
+        padding:9px 14px;
+        border:1px solid var(--line);
+        border-radius:10px;
+        margin-bottom:8px;
+        font-size:17.5px;
+        background:var(--panel);
+        display:flex; gap:10px; align-items:baseline;
+      }
+      ul.materials li::before{ content:"●"; color:var(--green); font-size:11px; flex:none; position:relative; top:-3px; }
+      ul.materials .yen{
+        margin-left:auto; flex:none;
+        font-size:13.5px; color:var(--gold);
+        border:1px solid var(--gold); border-radius:999px; padding:0 9px;
+        white-space:nowrap;
+      }
+
+      /* ---- wizard ---- */
+      .wizard{
+        border:2px solid var(--green);
+        border-radius:16px;
+        padding:20px;
+        background:var(--panel2);
+      }
+      .wiz-count{ font-size:15px; color:var(--ink-soft); margin:0 0 4px; font-weight:700; letter-spacing:.04em; }
+      .wiz-title{ font-size:23px; font-weight:700; margin:0 0 8px; line-height:1.45; color:var(--green-dark); }
+      .wiz-body{ font-size:19px; line-height:1.85; margin:0; min-height:3.7em; }
+      .wiz-body .warn{ color:var(--red); font-weight:700; }
+      .wiz-nav{ display:flex; gap:12px; margin-top:18px; }
+      .wiz-nav button{
+        flex:1;
+        min-height:54px;
+        font-size:19px; font-weight:700;
+        border-radius:12px;
+        border:2px solid var(--green);
+        background:var(--panel);
+        color:var(--green-dark);
+        padding:10px;
+      }
+      .wiz-nav button.next{ background:var(--green); color:#fff; }
+      @media (prefers-color-scheme: dark){
+        .wiz-nav button.next{ color:#0e2417; background:var(--green); }
+      }
+      .wiz-nav button:disabled{ opacity:.35; cursor:default; }
+      .wiz-dots{ display:flex; gap:7px; justify-content:center; margin-top:14px; flex-wrap:wrap; }
+      .wiz-dots span{ width:11px; height:11px; border-radius:50%; background:var(--line); }
+      .wiz-dots span.on{ background:var(--red); }
+
+      /* ---- template sheet ---- */
+      .sheet-scroll{ display:flex; justify-content:center; }
+      .sheet{
+        background:#fff;
+        width:min(540px,100%);
+        aspect-ratio:210/297;
+        border:1.5px solid #b9b9b9;
+        box-shadow:0 4px 18px rgba(0,0,0,.16);
+      }
+      .sheet svg{ display:block; width:100%; height:100%; }
+      .print-btn{
+        display:block; width:100%;
+        min-height:58px;
+        margin-top:16px;
+        font-size:20px; font-weight:700;
+        color:#fff; background:var(--red);
+        border:none; border-radius:14px;
+        padding:12px;
+        box-shadow:var(--shadow);
+      }
+      .print-note{ font-size:15.5px; color:var(--ink-soft); margin:10px 2px 0; }
+
+      /* ---- 印刷モード（型紙だけ表示） ---- */
+      .print-banner{
+        display:none;
+        border:2px solid var(--red);
+        border-radius:14px;
+        padding:16px 18px;
+        margin-bottom:18px;
+        background:var(--panel2);
+      }
+      .print-banner p{ margin:0 0 12px; font-size:18px; line-height:1.8; }
+      .print-banner button{
+        min-height:48px;
+        font-size:17px; font-weight:700;
+        border-radius:10px;
+        border:2px solid var(--green);
+        background:var(--panel); color:var(--green-dark);
+        padding:8px 20px;
+      }
+      body.printmode .print-banner{ display:block; }
+      body.printmode header.hero,
+      body.printmode .howto-print,
+      body.printmode .craft-nav,
+      body.printmode footer,
+      body.printmode .panel h2,
+      body.printmode .panel .lead,
+      body.printmode .done-img,
+      body.printmode .panel h3.sec,
+      body.printmode ul.materials,
+      body.printmode .wizard,
+      body.printmode .print-btn,
+      body.printmode .print-note{ display:none; }
+      body.printmode .panel{ border:none; box-shadow:none; background:transparent; padding-top:6px; }
+
+      footer{ margin-top:30px; text-align:center; color:var(--ink-soft); font-size:15px; }
+
+      /* ---- print: only the chosen A4 sheet ---- */
+      @page{ size:A4; margin:0; }
+      @media print{
+        body{ background:#fff; }
+        body *{ visibility:hidden; }
+        .sheet, .sheet *{ visibility:visible; }
+        .sheet{
+          display:none;
+          position:absolute; top:0; left:0;
+          width:210mm; height:297mm;
+          border:none; box-shadow:none;
+        }
+        body[data-print="tree"]  #sheet-tree,
+        body[data-print="adv"]   #sheet-adv,
+        body[data-print="ball"]  #sheet-ball{ display:block; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+
+      <header class="hero">
+        <h1>🎄 クリスマス紙工作キット</h1>
+        <p>紙1枚で作れる、クリスマスの工作3つをまとめました。型紙をA4判で印刷すれば、すぐ作り始められます。道具は、家にあるものと100円ショップで買えるものだけです。</p>
+        <div class="hero-badges">
+          <span>工作は全部で3つ</span>
+          <span>型紙はA4実寸</span>
+          <span>5cm確認線つき</span>
+        </div>
+      </header>
+
+      <div class="howto-print">
+        <p><strong>印刷のしかた：</strong>各工作のいちばん下にあるボタンを押すと、その型紙だけが表示されます。その画面で、ブラウザの印刷（パソコンは Ctrl＋P、スマホは共有メニューから「プリント」）をしてください。印刷の設定は <strong>A4判・倍率100％（実際のサイズ）・余白なし</strong> がおすすめです。</p>
+        <p>印刷できたら、型紙のはしにある<strong>「5cm確認線」</strong>を定規で測ってください。ぴったり5cmなら、大きさは合っています。</p>
+      </div>
+
+      <nav class="craft-nav" aria-label="工作を選ぶ">
+        <button class="craft-btn" data-target="tree" aria-selected="true">
+          <svg class="ico" width="46" height="46" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4 L34 16 L29 16 L38 27 L32 27 L41 38 L28 38 L28 44 L20 44 L20 38 L7 38 L17 27 L11 27 L19 16 L14 16 Z" fill="#1e6b45"/><circle cx="24" cy="24" r="2.4" fill="#b3372e"/><circle cx="19" cy="31" r="2.2" fill="#c99700"/><circle cx="29" cy="32" r="2.2" fill="#b3372e"/></svg>
+          <span><span class="name">立体ツリー</span><span class="meta">約20分 ・ かんたん</span></span>
+        </button>
+        <button class="craft-btn" data-target="adv" aria-selected="false">
+          <svg class="ico" width="46" height="46" viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="9" width="34" height="32" rx="4" fill="#fff" stroke="#b3372e" stroke-width="2.5"/><rect x="7" y="9" width="34" height="9" rx="4" fill="#b3372e"/><rect x="13" y="24" width="6" height="6" fill="#1e6b45"/><rect x="22" y="24" width="6" height="6" fill="#c99700"/><rect x="31" y="24" width="6" height="6" fill="#b3372e"/><rect x="13" y="33" width="6" height="6" fill="#c99700"/><rect x="22" y="33" width="6" height="6" fill="#b3372e"/><rect x="31" y="33" width="6" height="6" fill="#1e6b45"/></svg>
+          <span><span class="name">アドベントカレンダー</span><span class="meta">作るのは約15分 ・ 毎日ちぎる</span></span>
+        </button>
+        <button class="craft-btn" data-target="ball" aria-selected="false">
+          <svg class="ico" width="46" height="46" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3 l1.8 3.6 3.9.6 -2.8 2.8 .7 3.9 -3.6-1.9 -3.6 1.9 .7-3.9 -2.8-2.8 3.9-.6 Z" fill="#c99700"/><line x1="24" y1="13" x2="24" y2="17" stroke="#a87b12" stroke-width="2"/><circle cx="24" cy="30" r="13" fill="#b3372e"/><path d="M13 24 a13 13 0 0 1 22 0" fill="none" stroke="#e8a09a" stroke-width="2"/><path d="M12 33 a13 13 0 0 0 24 0" fill="none" stroke="#e8a09a" stroke-width="2"/></svg>
+          <span><span class="name">ペーパーボール</span><span class="meta">約30分 ・ のりで貼る</span></span>
+        </button>
+      </nav>
+
+      <!-- ============ 1. 立体ツリー ============ -->
+      <section class="panel" id="panel-tree">
+        <h2>🎄 立体ツリー</h2>
+        <p class="lead">同じ形のツリーを2枚切り抜いて、十字に差し込むと立つツリーです。のりはいりません。</p>
+
+        <div class="done-img">
+          <figure>
+            <svg width="190" height="170" viewBox="0 0 190 170" role="img" aria-label="十字に組み立てた立体ツリーの完成図">
+              <polygon points="95,8 103,24 99,24 112,42 106,42 122,62 113,62 128,84 128,92 95,92" fill="#2e7d52"/>
+              <polygon points="95,8 87,24 91,24 78,42 84,42 68,62 77,62 62,84 62,92 95,92" fill="#1e6b45"/>
+              <polygon points="95,20 131,52 126,52 140,74 133,74 146,96 146,102 95,102" fill="#57a773" opacity=".85"/>
+              <polygon points="95,20 59,52 64,52 50,74 57,74 44,96 44,102 95,102" fill="#57a773" opacity=".85"/>
+              <rect x="89" y="100" width="12" height="16" fill="#8a5a2b"/>
+              <polygon points="95,0 98.5,7 106,7.5 100.5,12.5 102.5,20 95,16 87.5,20 89.5,12.5 84,7.5 91.5,7" fill="#c99700"/>
+              <circle cx="86" cy="48" r="4" fill="#b3372e"/><circle cx="106" cy="60" r="4" fill="#fdf3d7"/>
+              <circle cx="90" cy="76" r="4" fill="#c99700"/><circle cx="110" cy="86" r="4" fill="#b3372e"/>
+              <ellipse cx="95" cy="128" rx="70" ry="9" fill="#000" opacity=".08"/>
+              <text x="95" y="152" text-anchor="middle" font-size="12.5" fill="#4c5f54">どこから見てもツリーの形</text>
+            </svg>
+            <figcaption>完成イメージ（高さは約19cmになります）</figcaption>
+          </figure>
+        </div>
+
+        <h3 class="sec">材料と道具</h3>
+        <ul class="materials">
+          <li>この型紙を印刷した紙 1枚（A4判・色画用紙だと丈夫です）</li>
+          <li>はさみ</li>
+          <li>色えんぴつやペン（色をぬる場合）</li>
+          <li>丸シールやモールなど、飾りの材料 <span class="yen">100円ショップ</span></li>
+        </ul>
+
+        <h3 class="sec">作り方（1つずつ進めます）</h3>
+        <div class="wizard" id="wiz-tree"></div>
+
+        <h3 class="sec">型紙（A4実寸）</h3>
+        <div class="print-banner">
+          <p>この型紙だけを表示しています。<strong>ブラウザの印刷</strong>（パソコンは Ctrl＋P、スマホは共有メニューから「プリント」）で、<strong>A4判・倍率100％・余白なし</strong>で印刷してください。</p>
+          <button type="button" class="exit-print">← 作り方にもどる</button>
+        </div>
+        <div class="sheet-scroll">
+          <div class="sheet" id="sheet-tree">
+            <svg viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="立体ツリーの型紙">
+              <rect x="0" y="0" width="210" height="297" fill="#ffffff"/>
+              <text x="10" y="13" font-size="5.8" font-weight="bold" fill="#14532f">立体ツリー 型紙</text>
+              <text x="200" y="13" text-anchor="end" font-size="4.2" fill="#555">A4判・100％で印刷</text>
+              <!-- ツリーA : きりこみ上から -->
+              <path d="M53,26 L69,62 L62,62 L79,98 L70,98 L89,136 L79,136 L97,176 L97,190 L62,190 L62,216 L44,216 L44,190 L9,190 L9,176 L27,136 L17,136 L36,98 L27,98 L44,62 L36,62 Z"
+                    fill="#eef7ee" stroke="#14532f" stroke-width="0.9"/>
+              <!-- ツリーB -->
+              <path d="M157,26 L173,62 L166,62 L183,98 L174,98 L193,136 L183,136 L201,176 L201,190 L166,190 L166,216 L148,216 L148,190 L113,190 L113,176 L131,136 L121,136 L140,98 L131,98 L148,62 L140,62 Z"
+                    fill="#eef7ee" stroke="#14532f" stroke-width="0.9"/>
+              <!-- 飾りの目安 -->
+              <g fill="none" stroke="#b3372e" stroke-width="0.45" opacity=".75">
+                <circle cx="45" cy="52" r="3.4"/><circle cx="62" cy="84" r="3.4"/><circle cx="42" cy="112" r="3.4"/>
+                <circle cx="66" cy="150" r="3.4"/><circle cx="38" cy="164" r="3.4"/>
+                <circle cx="149" cy="52" r="3.4"/><circle cx="166" cy="84" r="3.4"/><circle cx="146" cy="112" r="3.4"/>
+                <circle cx="170" cy="150" r="3.4"/><circle cx="142" cy="164" r="3.4"/>
+              </g>
+              <g fill="none" stroke="#c99700" stroke-width="0.45" opacity=".8">
+                <circle cx="60" cy="46" r="2.6"/><circle cx="48" cy="130" r="2.6"/><circle cx="164" cy="46" r="2.6"/><circle cx="152" cy="130" r="2.6"/>
+              </g>
+              <!-- きりこみ -->
+              <line x1="53" y1="27" x2="53" y2="121" stroke="#b3372e" stroke-width="1.1" stroke-dasharray="3.5 2"/>
+              <line x1="157" y1="215" x2="157" y2="121" stroke="#b3372e" stroke-width="1.1" stroke-dasharray="3.5 2"/>
+              <text x="53" y="232" text-anchor="middle" font-size="5" font-weight="bold" fill="#14532f">ツリー A</text>
+              <text x="53" y="239" text-anchor="middle" font-size="3.8" fill="#b3372e">上から真ん中まで切る</text>
+              <text x="157" y="232" text-anchor="middle" font-size="5" font-weight="bold" fill="#14532f">ツリー B</text>
+              <text x="157" y="239" text-anchor="middle" font-size="3.8" fill="#b3372e">下から真ん中まで切る</text>
+              <!-- 星 -->
+              <polygon points="105,225 108.6,235 119.3,235.4 110.9,241.9 113.8,252.1 105,246.2 96.2,252.1 99.1,241.9 90.7,235.4 101.4,235"
+                       fill="#fdf3d7" stroke="#a87b12" stroke-width="0.8"/>
+              <text x="105" y="263" text-anchor="middle" font-size="3.8" fill="#555">ほし</text>
+              <!-- 5cm確認線 -->
+              <g stroke="#000" stroke-width="0.5">
+                <line x1="10" y1="284" x2="60" y2="284"/>
+                <line x1="10" y1="281" x2="10" y2="287"/>
+                <line x1="60" y1="281" x2="60" y2="287"/>
+              </g>
+              <text x="35" y="278" text-anchor="middle" font-size="4" fill="#000">5cm確認線</text>
+              <text x="200" y="285" text-anchor="end" font-size="3.8" fill="#555">印刷後に定規で測ってください</text>
+            </svg>
+          </div>
+        </div>
+        <button class="print-btn" data-print="tree">🖨 印刷用に 型紙だけ表示する</button>
+        <p class="print-note">印刷の設定：A4判／倍率100％（実際のサイズ）／余白なし。印刷したら、左下の「5cm確認線」が定規で5cmになっているか確かめてください。</p>
+      </section>
+
+      <!-- ============ 2. アドベントカレンダー ============ -->
+      <section class="panel" id="panel-adv" hidden>
+        <h2>📅 ちぎって進むアドベントカレンダー</h2>
+        <p class="lead">12月1日から24日まで、毎日マスを1つちぎって進むカレンダーです。ちぎったマスには、その日の小さな楽しみが書いてあります。</p>
+
+        <div class="done-img">
+          <figure>
+            <svg width="190" height="170" viewBox="0 0 190 170" role="img" aria-label="アドベントカレンダーの完成図">
+              <rect x="25" y="8" width="140" height="140" rx="8" fill="#ffffff" stroke="#b3372e" stroke-width="2.5"/>
+              <path d="M95 22 L106 40 L101 40 L112 54 L106 54 L118 70 L118 76 L102 76 L102 84 L88 84 L88 76 L72 76 L72 70 L84 54 L78 54 L89 40 L84 40 Z" fill="#1e6b45"/>
+              <polygon points="95,14 97.5,19.5 103.5,20 99,23.5 100.5,29.5 95,26.5 89.5,29.5 91,23.5 86.5,20 92.5,19.5" fill="#c99700"/>
+              <g fill="#fdf3d7"><rect x="35" y="96" width="17" height="17"/><rect x="58" y="96" width="17" height="17"/><rect x="81" y="96" width="17" height="17"/><rect x="104" y="96" width="17" height="17"/><rect x="127" y="96" width="17" height="17"/><rect x="35" y="119" width="17" height="17"/><rect x="58" y="119" width="17" height="17"/><rect x="81" y="119" width="17" height="17"/><rect x="104" y="119" width="17" height="17"/></g>
+              <path d="M127 119 h17 v17 h-17 z" fill="#ffffff" stroke="#b3372e" stroke-width="1.6" transform="rotate(14 135 127)"/>
+              <text x="95" y="162" text-anchor="middle" font-size="13" fill="#4c5f54">毎日1マスずつ ちぎります</text>
+            </svg>
+            <figcaption>完成イメージ（壁に貼って使います）</figcaption>
+          </figure>
+        </div>
+
+        <h3 class="sec">材料と道具</h3>
+        <ul class="materials">
+          <li>この型紙を印刷した紙 1枚（A4判・少し厚めの紙がおすすめ）</li>
+          <li>色えんぴつやペン（ツリーに色をぬります）</li>
+          <li>マスキングテープ（壁に貼る用） <span class="yen">100円ショップ</span></li>
+          <li>はさみ（下準備で周りを整える場合）</li>
+        </ul>
+
+        <h3 class="sec">作り方（1つずつ進めます）</h3>
+        <div class="wizard" id="wiz-adv"></div>
+
+        <h3 class="sec">型紙（A4実寸）</h3>
+        <div class="print-banner">
+          <p>この型紙だけを表示しています。<strong>ブラウザの印刷</strong>（パソコンは Ctrl＋P、スマホは共有メニューから「プリント」）で、<strong>A4判・倍率100％・余白なし</strong>で印刷してください。</p>
+          <button type="button" class="exit-print">← 作り方にもどる</button>
+        </div>
+        <div class="sheet-scroll">
+          <div class="sheet" id="sheet-adv">
+            <svg viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="アドベントカレンダーの型紙">
+              <rect x="0" y="0" width="210" height="297" fill="#ffffff"/>
+              <text x="105" y="13" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#14532f">ちぎって進む アドベントカレンダー</text>
+              <!-- ぬりえツリー -->
+              <path d="M105,26 L127,64 L118,64 L141,102 L129,102 L155,140 L155,150 L115,150 L115,166 L95,166 L95,150 L55,150 L55,140 L81,102 L69,102 L92,64 L83,64 Z"
+                    fill="#ffffff" stroke="#14532f" stroke-width="0.9"/>
+              <polygon points="105,15 108,21.5 115,22 110,26.5 111.8,33.5 105,30 98.2,33.5 100,26.5 95,22 102,21.5" fill="#fdf3d7" stroke="#a87b12" stroke-width="0.7"/>
+              <g fill="none" stroke="#b3372e" stroke-width="0.5">
+                <circle cx="96" cy="56" r="4"/><circle cx="118" cy="80" r="4"/><circle cx="90" cy="98" r="4"/>
+                <circle cx="122" cy="124" r="4"/><circle cx="84" cy="130" r="4"/>
+              </g>
+              <g fill="none" stroke="#c99700" stroke-width="0.5">
+                <circle cx="112" cy="50" r="3"/><circle cx="100" cy="116" r="3"/><circle cx="136" cy="104" r="3"/>
+              </g>
+              <text x="105" y="176" text-anchor="middle" font-size="4.6" fill="#333">ツリーは お好みの色にぬってください</text>
+              <text x="105" y="184" text-anchor="middle" font-size="4.6" font-weight="bold" fill="#b3372e">12月1日〜24日　まいにち1マス ちぎりましょう</text>
+              <g id="advGrid"></g>
+              <!-- 5cm確認線 -->
+              <g stroke="#000" stroke-width="0.5">
+                <line x1="10" y1="292" x2="60" y2="292"/>
+                <line x1="10" y1="289.5" x2="10" y2="294.5"/>
+                <line x1="60" y1="289.5" x2="60" y2="294.5"/>
+              </g>
+              <text x="35" y="288.5" text-anchor="middle" font-size="3.6" fill="#000">5cm確認線</text>
+              <text x="200" y="292.5" text-anchor="end" font-size="3.6" fill="#555">A4判・100％で印刷／印刷後に定規で測ってください</text>
+            </svg>
+          </div>
+        </div>
+        <button class="print-btn" data-print="adv">🖨 印刷用に 型紙だけ表示する</button>
+        <p class="print-note">印刷の設定：A4判／倍率100％（実際のサイズ）／余白なし。印刷したら、下の「5cm確認線」が定規で5cmになっているか確かめてください。</p>
+      </section>
+
+      <!-- ============ 3. ペーパーボール ============ -->
+      <section class="panel" id="panel-ball" hidden>
+        <h2>🔴 ペーパーボールのオーナメント</h2>
+        <p class="lead">丸を12個切り抜いて、折って貼り合わせると、ころんと丸いボールの飾りができます。ツリーに吊るしたり、窓辺に飾ったりできます。</p>
+
+        <div class="done-img">
+          <figure>
+            <svg width="170" height="170" viewBox="0 0 170 170" role="img" aria-label="ペーパーボールの完成図">
+              <line x1="85" y1="4" x2="85" y2="34" stroke="#a87b12" stroke-width="2.5"/>
+              <circle cx="85" cy="92" r="56" fill="#b3372e"/>
+              <path d="M37 62 a56 56 0 0 1 96 0" fill="none" stroke="#e8a09a" stroke-width="3"/>
+              <path d="M31 96 a56 56 0 0 0 108 0" fill="none" stroke="#e8a09a" stroke-width="3"/>
+              <path d="M85 36 v112 M45 52 a56 56 0 0 0 0 80 M125 52 a56 56 0 0 1 0 80" fill="none" stroke="#8f2a23" stroke-width="2"/>
+              <ellipse cx="85" cy="160" rx="52" ry="6" fill="#000" opacity=".08"/>
+            </svg>
+            <figcaption>完成イメージ（直径は約9cmになります）</figcaption>
+          </figure>
+        </div>
+
+        <h3 class="sec">材料と道具</h3>
+        <ul class="materials">
+          <li>この型紙を印刷した紙 1枚（A4判・色画用紙だと色がきれいです）</li>
+          <li>はさみ</li>
+          <li>木工用ボンドや のり</li>
+          <li>ひも や リボン（吊るす用） <span class="yen">100円ショップ</span></li>
+          <li>洗濯ばさみ や クリップ（貼った所を押さえる用） <span class="yen">100円ショップ</span></li>
+        </ul>
+
+        <h3 class="sec">作り方（1つずつ進めます）</h3>
+        <div class="wizard" id="wiz-ball"></div>
+
+        <h3 class="sec">型紙（A4実寸）</h3>
+        <div class="print-banner">
+          <p>この型紙だけを表示しています。<strong>ブラウザの印刷</strong>（パソコンは Ctrl＋P、スマホは共有メニューから「プリント」）で、<strong>A4判・倍率100％・余白なし</strong>で印刷してください。</p>
+          <button type="button" class="exit-print">← 作り方にもどる</button>
+        </div>
+        <div class="sheet-scroll">
+          <div class="sheet" id="sheet-ball">
+            <svg viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ペーパーボールの型紙">
+              <rect x="0" y="0" width="210" height="297" fill="#ffffff"/>
+              <text x="10" y="13" font-size="6.5" font-weight="bold" fill="#14532f">ペーパーボール 型紙</text>
+              <text x="200" y="13" text-anchor="end" font-size="4.2" fill="#555">A4判・100％で印刷</text>
+              <text x="105" y="22" text-anchor="middle" font-size="4.2" fill="#555">丸を12個 切り抜きます。点線は 折る線です</text>
+              <g id="ballGroup"></g>
+              <!-- つりひも用の帯 -->
+              <rect x="55" y="256" width="100" height="9" fill="#fdf3d7" stroke="#a87b12" stroke-width="0.7"/>
+              <text x="105" y="262.2" text-anchor="middle" font-size="3.8" fill="#7a5c0d">つりひも用のおび（切り取って 輪にして使います）</text>
+              <!-- 5cm確認線 -->
+              <g stroke="#000" stroke-width="0.5">
+                <line x1="10" y1="284" x2="60" y2="284"/>
+                <line x1="10" y1="281" x2="10" y2="287"/>
+                <line x1="60" y1="281" x2="60" y2="287"/>
+              </g>
+              <text x="35" y="278" text-anchor="middle" font-size="4" fill="#000">5cm確認線</text>
+              <text x="200" y="285" text-anchor="end" font-size="3.8" fill="#555">印刷後に定規で測ってください</text>
+            </svg>
+          </div>
+        </div>
+        <button class="print-btn" data-print="ball">🖨 印刷用に 型紙だけ表示する</button>
+        <p class="print-note">印刷の設定：A4判／倍率100％（実際のサイズ）／余白なし。印刷したら、左下の「5cm確認線」が定規で5cmになっているか確かめてください。</p>
+      </section>
+
+      <footer>紙1枚と身近な道具で作る、クリスマスの紙工作キットです。</footer>
+    </div>
+
+    <script>
+      /* ---------- タブ切り替え ---------- */
+      var btns = document.querySelectorAll('.craft-btn');
+      btns.forEach(function(b){
+        b.addEventListener('click', function(){
+          btns.forEach(function(x){ x.setAttribute('aria-selected','false'); });
+          b.setAttribute('aria-selected','true');
+          ['tree','adv','ball'].forEach(function(k){
+            document.getElementById('panel-'+k).hidden = (k !== b.dataset.target);
+          });
+          document.getElementById('panel-'+b.dataset.target)
+            .scrollIntoView({behavior:'smooth', block:'start'});
+        });
+      });
+
+      /* ---------- 手順ウィザード ---------- */
+      var STEPS = {
+        tree: [
+          {t:'型紙を印刷します', b:'下の型紙を、A4判・倍率100％で印刷します。印刷できたら左下の「5cm確認線」を定規で測り、ぴったり5cmになっているか確かめてください。'},
+          {t:'先に 色をぬります', b:'切り抜く前に、ツリーAとBに色をぬったり、飾りを描いたりします。丸い印は、シールを貼る目安です。紙が平らな今のうちに仕上げるのがコツです。'},
+          {t:'ツリーAとBを 切り抜きます', b:'太い緑の輪郭にそって、ツリーAとツリーBを切り抜きます。星も切り取っておきます。<span class="warn">角の部分はゆっくり、はさみを小刻みに動かす</span>ときれいに切れます。'},
+          {t:'赤い点線を 切ります', b:'ツリーAは、赤い点線を「上から真ん中まで」。ツリーBは「下から真ん中まで」切ります。この切り込みが、組み立ての要です。切りすぎないように注意してください。'},
+          {t:'十字に 差し込みます', b:'Aの切り込みとBの切り込みを向かい合わせにして、そっと差し込みます。十字の形になったら成功です。'},
+          {t:'立てて、星をのせて完成です', b:'平らな場所にそっと立たせます。切り取った星をてっぺんに両面テープやのりで付けたら完成です。窓辺や玄関に飾ってください。'}
+        ],
+        adv: [
+          {t:'型紙を印刷します', b:'下の型紙を、A4判・倍率100％で印刷します。印刷できたら下の「5cm確認線」を定規で測り、ぴったり5cmになっているか確かめてください。少し厚めの紙がおすすめです。'},
+          {t:'ツリーに 色をぬります', b:'上のツリーの絵に、お好みの色をぬります。丸い印は飾りの目安です。家族みんなでぬっても楽しいです。'},
+          {t:'壁に 貼ります', b:'マスキングテープで、壁や冷蔵庫の扉など、毎日目に入る場所に貼ります。下の24マスが手の届く高さになるようにしてください。'},
+          {t:'12月1日から 毎日1マス ちぎります', b:'その日の日付のマスを、点線にそって指でそっとちぎり取ります。<span class="warn">勢いよく引っぱると隣のマスまで破れる</span>ので、点線を押さえながらゆっくりと。'},
+          {t:'ちぎったマスの言葉が その日の楽しみです', b:'マスには「感謝を伝える」「星空を見る」など、その日の小さな楽しみが書いてあります。ちぎったマスは、小箱や封筒にためておくと、24日分が思い出になります。'},
+          {t:'12月24日で 完成です', b:'最後のマスをちぎったら、クリスマスイブです。ツリーの絵だけが残ったカレンダーは、そのまま飾っておけます。'}
+        ],
+        ball: [
+          {t:'型紙を印刷します', b:'下の型紙を、A4判・倍率100％で印刷します。印刷できたら左下の「5cm確認線」を定規で測り、ぴったり5cmになっているか確かめてください。色画用紙に印刷すると、色のついたボールになります。'},
+          {t:'丸を12個 切り抜きます', b:'黒い輪郭にそって、丸を12個すべて切り抜きます。下の「つりひも用のおび」も切り取っておきます。数が多いので、休みながらで大丈夫です。'},
+          {t:'点線で 3か所 折ります', b:'それぞれの丸の中の三角形の点線にそって、3か所とも内側へ折ります。折った部分が、貼り合わせる「耳」になります。12個とも同じように折ってください。'},
+          {t:'お椀を 2つ 作ります', b:'丸1個を真ん中に置き、周りに5個の「耳」同士をのりで貼っていくと、お椀の形になります。同じものを2つ作ります。貼ったら洗濯ばさみで押さえ、よく乾かします。'},
+          {t:'ひもを 付けます', b:'「つりひも用のおび」を輪にして、片方のお椀のてっぺんに、のりやテープでしっかり付けます。お店のひもやリボンでも構いません。'},
+          {t:'お椀同士を 貼って完成です', b:'2つのお椀の「耳」同士をのりで貼り合わせます。全部貼れたら、ころんと丸いボールの完成です。よく乾かしてから、ツリーや窓辺に吊るしてください。'}
+        ]
+      };
+
+      function makeWizard(elId, steps){
+        var el = document.getElementById(elId);
+        var i = 0;
+        function render(){
+          var s = steps[i];
+          el.innerHTML =
+            '<p class="wiz-count">手順 ' + (i+1) + ' ／ ' + steps.length + '</p>' +
+            '<p class="wiz-title">' + s.t + '</p>' +
+            '<p class="wiz-body">' + s.b + '</p>' +
+            '<div class="wiz-nav">' +
+              '<button type="button" class="prev"' + (i===0 ? ' disabled' : '') + '>← もどる</button>' +
+              '<button type="button" class="next"' + (i===steps.length-1 ? ' disabled' : '') + '>' +
+                (i===steps.length-2 ? '最後の手順へ →' : '次の手順へ →') + '</button>' +
+            '</div>' +
+            '<div class="wiz-dots">' + steps.map(function(_,j){
+              return '<span class="' + (j===i ? 'on' : '') + '"></span>';
+            }).join('') + '</div>';
+          el.querySelector('.prev').addEventListener('click', function(){ if(i>0){ i--; render(); } });
+          el.querySelector('.next').addEventListener('click', function(){ if(i<steps.length-1){ i++; render(); } });
+        }
+        render();
+      }
+      makeWizard('wiz-tree', STEPS.tree);
+      makeWizard('wiz-adv',  STEPS.adv);
+      makeWizard('wiz-ball', STEPS.ball);
+
+      /* ---------- アドベントの24マスを生成 ---------- */
+      (function(){
+        var words = ['12月スタート','星を かざる','感謝を伝える','手紙を書く','歌を うたう','笑顔であいさつ',
+                     '部屋を片づける','家族に電話','本を 読む','散歩に 出る','お茶を楽しむ','贈り物の準備',
+                     'カードを書く','写真をながめる','温かく過ごす','願いごとを書く','お菓子の日','音楽を聞く',
+                     '星空を 見る','灯りをともす','少し 大掃除','買い物リスト','明日の 準備','メリークリスマス'];
+        var g = document.getElementById('advGrid');
+        var NS = 'http://www.w3.org/2000/svg';
+        var x0 = 10, y0 = 190, w = 31.66, h = 24.5, cols = 6;
+        for (var n = 0; n < 24; n++){
+          var cx = x0 + (n % cols) * w;
+          var cy = y0 + Math.floor(n / cols) * h;
+          var r = document.createElementNS(NS,'rect');
+          r.setAttribute('x', cx.toFixed(2)); r.setAttribute('y', cy.toFixed(2));
+          r.setAttribute('width', w); r.setAttribute('height', h);
+          r.setAttribute('fill', n === 23 ? '#fdf3d7' : '#ffffff');
+          r.setAttribute('stroke', '#888'); r.setAttribute('stroke-width','0.45');
+          r.setAttribute('stroke-dasharray','2.2 1.6');
+          g.appendChild(r);
+          var num = document.createElementNS(NS,'text');
+          num.setAttribute('x', (cx + w/2).toFixed(2)); num.setAttribute('y', (cy + 8.6).toFixed(2));
+          num.setAttribute('text-anchor','middle'); num.setAttribute('font-size','6.4');
+          num.setAttribute('font-weight','bold'); num.setAttribute('fill', n === 23 ? '#b3372e' : '#14532f');
+          num.textContent = (n+1);
+          g.appendChild(num);
+          var parts = words[n].split(' ');
+          parts.forEach(function(p, j){
+            var t = document.createElementNS(NS,'text');
+            t.setAttribute('x', (cx + w/2).toFixed(2));
+            t.setAttribute('y', (cy + 15.4 + j*5.2).toFixed(2));
+            t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','3.4'); t.setAttribute('fill','#333');
+            t.textContent = p;
+            g.appendChild(t);
+          });
+          var date = document.createElementNS(NS,'text');
+          date.setAttribute('x', (cx + 2.4).toFixed(2)); date.setAttribute('y', (cy + 5.4).toFixed(2));
+          date.setAttribute('font-size','2.8'); date.setAttribute('fill','#999');
+          date.textContent = '12/' + (n+1);
+          g.appendChild(date);
+        }
+      })();
+
+      /* ---------- ペーパーボールの丸12個を生成 ---------- */
+      (function(){
+        var g = document.getElementById('ballGroup');
+        var NS = 'http://www.w3.org/2000/svg';
+        var xs = [37, 105, 173], ys = [52, 110, 168, 226], R = 27;
+        ys.forEach(function(cy){
+          xs.forEach(function(cx){
+            var c = document.createElementNS(NS,'circle');
+            c.setAttribute('cx',cx); c.setAttribute('cy',cy); c.setAttribute('r',R);
+            c.setAttribute('fill','#ffffff'); c.setAttribute('stroke','#222'); c.setAttribute('stroke-width','0.8');
+            g.appendChild(c);
+            var tri = document.createElementNS(NS,'polygon');
+            var top = cx + ',' + (cy - R);
+            var bl  = (cx - 23.4) + ',' + (cy + 13.5);
+            var br  = (cx + 23.4) + ',' + (cy + 13.5);
+            tri.setAttribute('points', top + ' ' + br + ' ' + bl);
+            tri.setAttribute('fill','none'); tri.setAttribute('stroke','#b3372e');
+            tri.setAttribute('stroke-width','0.55'); tri.setAttribute('stroke-dasharray','2.4 1.8');
+            g.appendChild(tri);
+            var dot = document.createElementNS(NS,'circle');
+            dot.setAttribute('cx',cx); dot.setAttribute('cy',cy); dot.setAttribute('r','0.9');
+            dot.setAttribute('fill','#999');
+            g.appendChild(dot);
+          });
+        });
+      })();
+
+      /* ---------- 印刷モード（型紙だけ表示） ---------- */
+      document.querySelectorAll('.print-btn').forEach(function(b){
+        b.addEventListener('click', function(){
+          document.body.setAttribute('data-print', b.dataset.print);
+          document.body.classList.add('printmode');
+          document.getElementById('sheet-' + b.dataset.print)
+            .scrollIntoView({behavior:'smooth', block:'start'});
+        });
+      });
+      document.querySelectorAll('.exit-print').forEach(function(b){
+        b.addEventListener('click', function(){
+          document.body.classList.remove('printmode');
+          document.body.removeAttribute('data-print');
+        });
+      });
+    </script>
+  </body>
+</html>
