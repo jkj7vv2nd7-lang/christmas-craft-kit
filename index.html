@@ -253,6 +253,14 @@
         background:var(--panel); color:var(--green-dark);
         padding:8px 20px;
       }
+      .print-banner .do-print{
+        display:block; width:100%;
+        min-height:58px; margin-top:12px;
+        font-size:20px; font-weight:700;
+        color:#fff; background:var(--red);
+        border:none; border-radius:12px;
+        box-shadow:var(--shadow);
+      }
       body.printmode .print-banner{ display:block; }
       body.printmode header.hero,
       body.printmode .howto-print,
@@ -302,7 +310,7 @@
       </header>
 
       <div class="howto-print">
-        <p><strong>印刷のしかた：</strong>各工作のいちばん下にあるボタンを押すと、その型紙だけが表示されます。その画面で、ブラウザの印刷（パソコンは Ctrl＋P、スマホは共有メニューから「プリント」）をしてください。iPhoneでは、アプリの中で開いた画面からは印刷できないことがあります。そのときは、Safariでこのページを開き直してから、共有ボタン→「プリント」を選んでください。印刷の設定は <strong>A4判・倍率100％（実際のサイズ）・余白なし</strong> がおすすめです。</p>
+        <p><strong>印刷のしかた：</strong>各工作のいちばん下にあるボタンを押すと、その型紙だけが表示されます。その画面で、「印刷する」ボタンを押すと、用紙のプレビューが出ます。iPhoneでは、アプリの中で開いた画面からは印刷できないことがあります。そのときは、Safariでこのページを開き直してからボタンを押してください。印刷の設定は <strong>A4判・倍率100％（実際のサイズ）</strong> がおすすめです。</p>
         <p>印刷できたら、型紙のはしにある<strong>「5cm確認線」</strong>を定規で測ってください。ぴったり5cmなら、大きさは合っています。</p>
       </div>
 
@@ -357,8 +365,9 @@
 
         <h3 class="sec">型紙（A4実寸）</h3>
         <div class="print-banner">
-          <p>この型紙だけを表示しています。<strong>ブラウザの印刷</strong>（パソコンは Ctrl＋P、スマホは共有メニューから「プリント」）で、<strong>A4判・倍率100％・余白なし</strong>で印刷してください。<br>iPhoneでは、アプリの中で開いた画面からは印刷できないことがあります。そのときは、Safariでこのページを開き直してから、共有ボタン→「プリント」を選んでください。</p>
+          <p>この型紙だけを表示しています。下の<strong>「印刷する」ボタン</strong>を押すと、用紙のプレビューが出ます。<strong>A4判・倍率100％</strong>で印刷してください。<br>iPhoneでは、アプリの中で開いた画面からは印刷できないことがあります。そのときは、Safariでこのページを開き直してから、下のボタンを押してください。</p>
           <button type="button" class="exit-print">← 作り方にもどる</button>
+          <button type="button" class="do-print">🖨 印刷する</button>
         </div>
         <div class="sheet-scroll">
           <div class="sheet" id="sheet-tree">
@@ -440,8 +449,9 @@
 
         <h3 class="sec">型紙（A4実寸）</h3>
         <div class="print-banner">
-          <p>この型紙だけを表示しています。<strong>ブラウザの印刷</strong>（パソコンは Ctrl＋P、スマホは共有メニューから「プリント」）で、<strong>A4判・倍率100％・余白なし</strong>で印刷してください。<br>iPhoneでは、アプリの中で開いた画面からは印刷できないことがあります。そのときは、Safariでこのページを開き直してから、共有ボタン→「プリント」を選んでください。</p>
+          <p>この型紙だけを表示しています。下の<strong>「印刷する」ボタン</strong>を押すと、用紙のプレビューが出ます。<strong>A4判・倍率100％</strong>で印刷してください。<br>iPhoneでは、アプリの中で開いた画面からは印刷できないことがあります。そのときは、Safariでこのページを開き直してから、下のボタンを押してください。</p>
           <button type="button" class="exit-print">← 作り方にもどる</button>
+          <button type="button" class="do-print">🖨 印刷する</button>
         </div>
         <div class="sheet-scroll">
           <div class="sheet" id="sheet-adv">
@@ -510,8 +520,9 @@
 
         <h3 class="sec">型紙（A4実寸）</h3>
         <div class="print-banner">
-          <p>この型紙だけを表示しています。<strong>ブラウザの印刷</strong>（パソコンは Ctrl＋P、スマホは共有メニューから「プリント」）で、<strong>A4判・倍率100％・余白なし</strong>で印刷してください。<br>iPhoneでは、アプリの中で開いた画面からは印刷できないことがあります。そのときは、Safariでこのページを開き直してから、共有ボタン→「プリント」を選んでください。</p>
+          <p>この型紙だけを表示しています。下の<strong>「印刷する」ボタン</strong>を押すと、用紙のプレビューが出ます。<strong>A4判・倍率100％</strong>で印刷してください。<br>iPhoneでは、アプリの中で開いた画面からは印刷できないことがあります。そのときは、Safariでこのページを開き直してから、下のボタンを押してください。</p>
           <button type="button" class="exit-print">← 作り方にもどる</button>
+          <button type="button" class="do-print">🖨 印刷する</button>
         </div>
         <div class="sheet-scroll">
           <div class="sheet" id="sheet-ball">
@@ -688,6 +699,9 @@
           document.getElementById('sheet-' + b.dataset.print)
             .scrollIntoView({behavior:'smooth', block:'start'});
         });
+      });
+      document.querySelectorAll('.do-print').forEach(function(b){
+        b.addEventListener('click', function(){ window.print(); });
       });
       document.querySelectorAll('.exit-print').forEach(function(b){
         b.addEventListener('click', function(){
