@@ -218,7 +218,7 @@
       .sheet{
         background:#fff;
         width:min(540px,100%);
-        aspect-ratio:190/260;
+        aspect-ratio:190/248;
         border:1.5px solid #b9b9b9;
         box-shadow:0 4px 18px rgba(0,0,0,.16);
       }
@@ -298,7 +298,7 @@
         .sheet{
           display:none !important;
           position:static !important;
-          width:190mm; height:260mm;
+          width:190mm; height:248mm;
           margin:0 auto !important;
           border:none !important; box-shadow:none !important;
         }
@@ -383,10 +383,18 @@
         </div>
         <div class="sheet-scroll">
           <div class="sheet" id="sheet-tree">
-            <svg viewBox="0 0 190 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="立体ツリーの型紙">
-              <rect x="0" y="0" width="190" height="260" fill="#ffffff"/>
-              <text x="10" y="13" font-size="5.8" font-weight="bold" fill="#14532f">立体ツリー 型紙</text>
-              <text x="180" y="13" text-anchor="end" font-size="4.2" fill="#555">A4判・100％で印刷</text>
+            <svg viewBox="0 0 190 248" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="立体ツリーの型紙">
+              <rect x="0" y="0" width="190" height="248" fill="#ffffff"/>
+              <text x="68" y="14" font-size="5.8" font-weight="bold" fill="#14532f">立体ツリー 型紙</text>
+              <text x="180" y="14" text-anchor="end" font-size="3.8" fill="#555">印刷後に定規で測ってください</text>
+              <!-- 5cm確認線（上のほうに配置） -->
+              <g stroke="#000" stroke-width="0.5">
+                <line x1="10" y1="14" x2="60" y2="14"/>
+                <line x1="10" y1="11.5" x2="10" y2="16.5"/>
+                <line x1="60" y1="11.5" x2="60" y2="16.5"/>
+              </g>
+              <text x="35" y="10.5" text-anchor="middle" font-size="4" fill="#000">5cm確認線</text>
+
               <!-- ツリーA : きりこみ上から -->
               <path d="M53,26 L69,62 L62,62 L79,98 L70,98 L89,136 L79,136 L97,176 L97,190 L62,190 L62,216 L44,216 L44,190 L9,190 L9,176 L27,136 L17,136 L36,98 L27,98 L44,62 L36,62 Z"
                     fill="#eef7ee" stroke="#14532f" stroke-width="0.9"/>
@@ -411,22 +419,14 @@
               <text x="145" y="226" text-anchor="middle" font-size="5" font-weight="bold" fill="#14532f">ツリー B</text>
               <text x="145" y="233" text-anchor="middle" font-size="3.8" fill="#b3372e">下から真ん中まで切る</text>
               <!-- 星 -->
-              <polygon points="95,219 98.6,229 109.3,229.4 100.9,235.9 103.8,246.1 95,240.2 86.2,246.1 89.1,235.9 80.7,229.4 91.4,229"
+              <polygon points="95,210 98.6,220 109.3,220.4 100.9,226.9 103.8,237.1 95,231.2 86.2,237.1 89.1,226.9 80.7,220.4 91.4,220"
                        fill="#fdf3d7" stroke="#a87b12" stroke-width="0.8"/>
-              <text x="95" y="254" text-anchor="middle" font-size="3.8" fill="#555">ほし</text>
-              <!-- 5cm確認線 -->
-              <g stroke="#000" stroke-width="0.5">
-                <line x1="10" y1="256" x2="60" y2="256"/>
-                <line x1="10" y1="253.5" x2="10" y2="258.5"/>
-                <line x1="60" y1="253.5" x2="60" y2="258.5"/>
-              </g>
-              <text x="35" y="252.5" text-anchor="middle" font-size="4" fill="#000">5cm確認線</text>
-              <text x="180" y="257" text-anchor="end" font-size="3.8" fill="#555">印刷後に定規で測ってください</text>
+              <text x="95" y="245" text-anchor="middle" font-size="3.8" fill="#555">ほし</text>
             </svg>
           </div>
         </div>
         <button class="print-btn" data-print="tree">🖨 印刷用に 型紙だけ表示する</button>
-        <p class="print-note">印刷の設定：A4判／倍率100％（実際のサイズ）／余白なし。印刷したら、左下の「5cm確認線」が定規で5cmになっているか確かめてください。</p>
+        <p class="print-note">印刷の設定：A4判／倍率100％（実際のサイズ）／余白なし。印刷したら、型紙の上のほうにある「5cm確認線」が定規で5cmになっているか確かめてください。</p>
       </section>
 
       <!-- ============ 2. アドベントカレンダー ============ -->
@@ -467,36 +467,36 @@
         </div>
         <div class="sheet-scroll">
           <div class="sheet" id="sheet-adv">
-            <svg viewBox="0 0 190 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="アドベントカレンダーの型紙">
-              <rect x="0" y="0" width="190" height="260" fill="#ffffff"/>
-              <text x="95" y="13" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#14532f">ちぎって進む アドベントカレンダー</text>
+            <svg viewBox="0 0 190 248" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="アドベントカレンダーの型紙">
+              <rect x="0" y="0" width="190" height="248" fill="#ffffff"/>
+              <text x="95" y="11" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#14532f">ちぎって進む アドベントカレンダー</text>
+              <!-- 5cm確認線（上のほうに配置） -->
+              <g stroke="#000" stroke-width="0.5">
+                <line x1="10" y1="20" x2="60" y2="20"/>
+                <line x1="10" y1="17.5" x2="10" y2="22.5"/>
+                <line x1="60" y1="17.5" x2="60" y2="22.5"/>
+              </g>
+              <text x="35" y="16.5" text-anchor="middle" font-size="3.6" fill="#000">5cm確認線</text>
+              <text x="180" y="20" text-anchor="end" font-size="3.6" fill="#555">印刷後に定規で測ってください</text>
               <!-- ぬりえツリー -->
-              <path d="M105,26 L127,64 L118,64 L141,102 L129,102 L155,140 L155,150 L115,150 L115,166 L95,166 L95,150 L55,150 L55,140 L81,102 L69,102 L92,64 L83,64 Z" transform="translate(-10,0) scale(1,0.82)"
+              <path d="M105,26 L127,64 L118,64 L141,102 L129,102 L155,140 L155,150 L115,150 L115,166 L95,166 L95,150 L55,150 L55,140 L81,102 L69,102 L92,64 L83,64 Z" transform="translate(-10,0) scale(1,0.76)"
                     fill="#ffffff" stroke="#14532f" stroke-width="0.9"/>
               <polygon points="105,15 108,21.5 115,22 110,26.5 111.8,33.5 105,30 98.2,33.5 100,26.5 95,22 102,21.5" transform="translate(-10,0)" fill="#fdf3d7" stroke="#a87b12" stroke-width="0.7"/>
-              <g fill="none" stroke="#b3372e" stroke-width="0.5" transform="translate(-10,0) scale(1,0.82)">
+              <g fill="none" stroke="#b3372e" stroke-width="0.5" transform="translate(-10,0) scale(1,0.76)">
                 <circle cx="96" cy="56" r="4"/><circle cx="118" cy="80" r="4"/><circle cx="90" cy="98" r="4"/>
                 <circle cx="122" cy="124" r="4"/><circle cx="84" cy="130" r="4"/>
               </g>
-              <g fill="none" stroke="#c99700" stroke-width="0.5" transform="translate(-10,0) scale(1,0.82)">
+              <g fill="none" stroke="#c99700" stroke-width="0.5" transform="translate(-10,0) scale(1,0.76)">
                 <circle cx="112" cy="50" r="3"/><circle cx="100" cy="116" r="3"/><circle cx="136" cy="104" r="3"/>
               </g>
-              <text x="95" y="146" text-anchor="middle" font-size="4.6" fill="#333">ツリーは お好みの色にぬってください</text>
-              <text x="95" y="154" text-anchor="middle" font-size="4.6" font-weight="bold" fill="#b3372e">12月1日〜24日　まいにち1マス ちぎりましょう</text>
+              <text x="95" y="136" text-anchor="middle" font-size="4.6" fill="#333">ツリーは お好みの色にぬってください</text>
+              <text x="95" y="144" text-anchor="middle" font-size="4.6" font-weight="bold" fill="#b3372e">12月1日〜24日　まいにち1マス ちぎりましょう</text>
               <g id="advGrid"></g>
-              <!-- 5cm確認線 -->
-              <g stroke="#000" stroke-width="0.5">
-                <line x1="10" y1="256" x2="60" y2="256"/>
-                <line x1="10" y1="253.5" x2="10" y2="258.5"/>
-                <line x1="60" y1="253.5" x2="60" y2="258.5"/>
-              </g>
-              <text x="35" y="252.5" text-anchor="middle" font-size="3.6" fill="#000">5cm確認線</text>
-              <text x="180" y="257" text-anchor="end" font-size="3.6" fill="#555">A4判・100％で印刷／印刷後に定規で測ってください</text>
             </svg>
           </div>
         </div>
         <button class="print-btn" data-print="adv">🖨 印刷用に 型紙だけ表示する</button>
-        <p class="print-note">印刷の設定：A4判／倍率100％（実際のサイズ）／余白なし。印刷したら、下の「5cm確認線」が定規で5cmになっているか確かめてください。</p>
+        <p class="print-note">印刷の設定：A4判／倍率100％（実際のサイズ）／余白なし。印刷したら、型紙の上のほうにある「5cm確認線」が定規で5cmになっているか確かめてください。</p>
       </section>
 
       <!-- ============ 3. ペーパーボール ============ -->
@@ -538,28 +538,28 @@
         </div>
         <div class="sheet-scroll">
           <div class="sheet" id="sheet-ball">
-            <svg viewBox="0 0 190 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ペーパーボールの型紙">
-              <rect x="0" y="0" width="190" height="260" fill="#ffffff"/>
-              <text x="10" y="13" font-size="6.5" font-weight="bold" fill="#14532f">ペーパーボール 型紙</text>
-              <text x="180" y="13" text-anchor="end" font-size="4.2" fill="#555">A4判・100％で印刷</text>
-              <text x="95" y="22" text-anchor="middle" font-size="4.2" fill="#555">丸を12個 切り抜きます。点線は 折る線です</text>
+            <svg viewBox="0 0 190 248" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ペーパーボールの型紙">
+              <rect x="0" y="0" width="190" height="248" fill="#ffffff"/>
+              <text x="64" y="14" font-size="6.5" font-weight="bold" fill="#14532f">ペーパーボール 型紙</text>
+              <text x="180" y="14" text-anchor="end" font-size="3.4" fill="#555">印刷後に定規で測ってください</text>
+              <!-- 5cm確認線（上のほうに配置） -->
+              <g stroke="#000" stroke-width="0.5">
+                <line x1="10" y1="14" x2="60" y2="14"/>
+                <line x1="10" y1="11.5" x2="10" y2="16.5"/>
+                <line x1="60" y1="11.5" x2="60" y2="16.5"/>
+              </g>
+              <text x="35" y="10.5" text-anchor="middle" font-size="4" fill="#000">5cm確認線</text>
+
+              <text x="95" y="22" text-anchor="middle" font-size="4.2" fill="#555">丸を12個 切り抜きます。点線は 折る線です／A4判・100％で印刷</text>
               <g id="ballGroup"></g>
               <!-- つりひも用の帯 -->
-              <rect x="45" y="248" width="100" height="8" fill="#fdf3d7" stroke="#a87b12" stroke-width="0.7"/>
-              <text x="95" y="254.2" text-anchor="middle" font-size="3.8" fill="#7a5c0d">つりひも用のおび（切り取って 輪にして使います）</text>
-              <!-- 5cm確認線 -->
-              <g stroke="#000" stroke-width="0.5">
-                <line x1="10" y1="256" x2="60" y2="256"/>
-                <line x1="10" y1="253.5" x2="10" y2="258.5"/>
-                <line x1="60" y1="253.5" x2="60" y2="258.5"/>
-              </g>
-              <text x="35" y="252.5" text-anchor="middle" font-size="4" fill="#000">5cm確認線</text>
-              <text x="180" y="257" text-anchor="end" font-size="3.8" fill="#555">印刷後に定規で測ってください</text>
+              <rect x="45" y="240" width="100" height="7" fill="#fdf3d7" stroke="#a87b12" stroke-width="0.7"/>
+              <text x="95" y="245.8" text-anchor="middle" font-size="3.8" fill="#7a5c0d">つりひも用のおび（切り取って 輪にして使います）</text>
             </svg>
           </div>
         </div>
         <button class="print-btn" data-print="ball">🖨 印刷用に 型紙だけ表示する</button>
-        <p class="print-note">印刷の設定：A4判／倍率100％（実際のサイズ）／余白なし。印刷したら、左下の「5cm確認線」が定規で5cmになっているか確かめてください。</p>
+        <p class="print-note">印刷の設定：A4判／倍率100％（実際のサイズ）／余白なし。印刷したら、型紙の上のほうにある「5cm確認線」が定規で5cmになっているか確かめてください。</p>
       </section>
 
       <footer>紙1枚と身近な道具で作る、クリスマスの紙工作キットです。</footer>
@@ -642,7 +642,7 @@
                      '星空を 見る','灯りをともす','少し 大掃除','買い物リスト','明日の 準備','メリークリスマス'];
         var g = document.getElementById('advGrid');
         var NS = 'http://www.w3.org/2000/svg';
-        var x0 = 5, y0 = 162, w = 30, h = 23, cols = 6;
+        var x0 = 5, y0 = 150, w = 30, h = 21.5, cols = 6;
         for (var n = 0; n < 24; n++){
           var cx = x0 + (n % cols) * w;
           var cy = y0 + Math.floor(n / cols) * h;
@@ -654,7 +654,7 @@
           r.setAttribute('stroke-dasharray','2.2 1.6');
           g.appendChild(r);
           var num = document.createElementNS(NS,'text');
-          num.setAttribute('x', (cx + w/2).toFixed(2)); num.setAttribute('y', (cy + 8.4).toFixed(2));
+          num.setAttribute('x', (cx + w/2).toFixed(2)); num.setAttribute('y', (cy + 7.9).toFixed(2));
           num.setAttribute('text-anchor','middle'); num.setAttribute('font-size','6.4');
           num.setAttribute('font-weight','bold'); num.setAttribute('fill', n === 23 ? '#b3372e' : '#14532f');
           num.textContent = (n+1);
@@ -663,13 +663,13 @@
           parts.forEach(function(p, j){
             var t = document.createElementNS(NS,'text');
             t.setAttribute('x', (cx + w/2).toFixed(2));
-            t.setAttribute('y', (cy + 15.0 + j*5.0).toFixed(2));
+            t.setAttribute('y', (cy + 14.0 + j*4.7).toFixed(2));
             t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','3.4'); t.setAttribute('fill','#333');
             t.textContent = p;
             g.appendChild(t);
           });
           var date = document.createElementNS(NS,'text');
-          date.setAttribute('x', (cx + 2.4).toFixed(2)); date.setAttribute('y', (cy + 5.3).toFixed(2));
+          date.setAttribute('x', (cx + 2.4).toFixed(2)); date.setAttribute('y', (cy + 5.0).toFixed(2));
           date.setAttribute('font-size','2.8'); date.setAttribute('fill','#999');
           date.textContent = '12/' + (n+1);
           g.appendChild(date);
@@ -680,7 +680,7 @@
       (function(){
         var g = document.getElementById('ballGroup');
         var NS = 'http://www.w3.org/2000/svg';
-        var xs = [32, 95, 158], ys = [50, 106, 162, 218], R = 27;
+        var xs = [32, 95, 158], ys = [50.5, 104, 157.5, 211], R = 26.5;
         ys.forEach(function(cy){
           xs.forEach(function(cx){
             var c = document.createElementNS(NS,'circle');
